@@ -4,14 +4,18 @@ module.exports = function(app) {
   // Load index page
   app.get("/", function(req, res) {
     db.Example.findAll({}).then(function() {
-      res.render("index");
+      res.render("index", {
+        style: "home.css"
+      });
     });
   });
 
   // Load example page //
   app.get("/example", function(req, res) {
     db.Example.findOne({}).then(function() {
-      res.render("example");
+      res.render("example", {
+        style: "example.css"
+      });
     });
   });
 
